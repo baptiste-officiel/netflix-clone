@@ -1,23 +1,24 @@
 import { getServerSession } from "next-auth" 
-import { authOptions } from "./api/auth/[...nextauth]/route"
+import { authOptions } from "../api/auth/[...nextauth]/route"
 import { redirect } from "next/navigation"
 
-export default async function Home() {
+
+async function Movies() {
+
   const data = await getServerSession(authOptions)
 
   if (!data) {
-    redirect('/login')
-  } else {
-    redirect('/users')
-  }
+    redirect('/api/auth/signin?callbackUrl=/movies')
+  } 
 
   console.log(data);
   
 
   return (
     <div className='bg-red-500 min-h-screen pt-28'>
-      {/* <h1>{data?.user?.name}</h1> */}
+      <h1>{data.user?.name}</h1>
     </div>
   )
 }
 
+export default Movies
