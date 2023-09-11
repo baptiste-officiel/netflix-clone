@@ -3,6 +3,10 @@
 import { signIn } from 'next-auth/react'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link';
+import { FcGoogle } from 'react-icons/fc'
+import { AiFillGithub } from 'react-icons/ai'
+
 
 
 function Login() {
@@ -18,8 +22,13 @@ function Login() {
       e.preventDefault();
       console.log(data);
 
+      try {
       signIn('credentials', {...data, redirect: false})
-      .then(() => router.push('/users'))  
+      .then(() => router.push('/users'))      
+      } catch (error) {
+        console.log(error);
+        
+      }
   
     }
 
@@ -34,6 +43,9 @@ function Login() {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <div className='flex justify-center items-center w-full border py-3 mb-4 gap-2 cursor-pointer rounded-lg' onClick={() => signIn('google', {callbackUrl: '/users'})}><FcGoogle size={25} /> Sign in with Google</div>
+        <div className='flex justify-center items-center w-full border py-3 mb-4 gap-2 cursor-pointer rounded-lg' onClick={() => signIn('github', {callbackUrl: '/users'})}><AiFillGithub size={25} /> Sign in with Github</div>
+<hr className='my-4' />
         <form className="space-y-6" onSubmit={handleSubmit}>
           <div>
             <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
@@ -76,13 +88,14 @@ function Login() {
           <div>
             <button
               type="submit"
-              className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 mt-8 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Log in
             </button>
           </div>
         </form>
       </div>
+      <p className='text-center text-sm text-neutral-800 font-light mt-8'>No account yet ? <Link href='/register' className='underline font-normal'>Sign up !</Link></p>
     </div>
     </div>
   </>
