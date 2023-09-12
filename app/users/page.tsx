@@ -16,9 +16,10 @@ async function page() {
       }
 
   return (
-      <div className='pt-28 bg-black min-h-screen text-white flex justify-center items-center'>
+      <div className='pt-22 bg-black min-h-screen text-white flex flex-col gap-8 justify-center items-center'>
+        <h1 className="text-3xl md:text-5xl md:mb-8">Who's watching ?</h1>
         <div className="w-100 lg:w-4/5 mx-auto flex justify-center items-center gap-4">
-        <User name={data?.user?.name} />
+        <User name={data?.user?.name} img={data?.user?.image} />
         </div>
       </div>
   )

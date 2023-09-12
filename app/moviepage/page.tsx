@@ -1,9 +1,10 @@
 import { getServerSession } from "next-auth" 
 import { authOptions } from "../api/auth/[...nextauth]/route"
 import { redirect } from "next/navigation"
+import PopularMovies from "../components/movies/PopularMovies"
 
 
-async function Movies() {
+async function MoviePage() {
 
   const data = await getServerSession(authOptions)
 
@@ -17,8 +18,9 @@ async function Movies() {
   return (
     <div className='bg-red-500 min-h-screen pt-28'>
       <h1>{data.user?.name}</h1>
+      <PopularMovies />
     </div>
   )
 }
 
-export default Movies
+export default MoviePage

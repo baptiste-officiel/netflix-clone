@@ -7,12 +7,13 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 import { signOut, useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
+import { BiSolidDownArrow } from 'react-icons/bi'
 
 
 function Navbar() {
 
   const {data: session} = useSession();
-
+  
   const router = useRouter()
 
   // const logOut = () => {
@@ -35,6 +36,14 @@ function Navbar() {
     <Link href='/'><Image src='/img/logo.svg' width={50} height={50} alt='logo' /></Link>
     <div className='flex items-center gap-4'>
     <button className='py-2 px-4 border-black border-[2px] rounded-lg bg-black text-white hover:text-black hover:bg-transparent duration-300 font-medium' onClick={() => signOut()}>Log Out</button>
+    <div className='flex justify-between items-center gap-2'>
+    {session?.user?.image ? 
+        <Image src={session?.user?.image} alt="avatar" width={40} height={40} className='rounded-md' />
+        : 
+        <Image src={'/img/avatar.png'} alt="avatar" width={40} height={40} className='rounded-md' />
+      }
+      <BiSolidDownArrow />
+    </div>
     </div>
 </nav>
         }

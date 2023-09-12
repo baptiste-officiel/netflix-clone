@@ -1,17 +1,26 @@
 'use client'
 
 import { redirect } from "next/navigation"
+import { useRouter } from "next/navigation"
+import Image from 'next/image'
 
 
-function User({name}) {
+function User({name, img}) {
 
-  const handleClick = async(name) => {
-    redirect(`/movies/[${name}]`)
+  const router = useRouter();
+
+  const handleClick = async() => {
+    router.push(`/moviepage`)
   }
 
   return (
-    <div className="bg-white py-4 px-2 flex flex-col justify-center items-center gap-4" onClick={handleClick}>
-      <h1 className="text-xl uppercase font-light text-black">{name}</h1>
+    <div className="py-4 px-2 flex flex-col justify-center items-center gap-4 rounded-md cursor-pointer" onClick={handleClick}>
+      {img ? 
+        <Image src={img} alt="avatar" width={100} height={100} />
+        : 
+        <Image src={'/img/avatar.png'} alt="avatar" width={100} height={100} />
+      }
+      <h1 className="text-xl capitalize font-light text-neutral-400">{name}</h1>
     </div>
   )
 }
