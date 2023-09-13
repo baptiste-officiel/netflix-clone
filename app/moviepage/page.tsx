@@ -16,8 +16,8 @@ async function MoviePage() {
   
 
   return (
-    <div className='bg-red-500 min-h-screen pt-28'>
-      <h1>{data.user?.name}</h1>
+    <div className='bg-gradient-to-b from-neutral-500 to-black min-h-screen '>
+      {/* <h1>{data.user?.name}</h1> */}
       <PopularMovies />
     </div>
   )

@@ -26,7 +26,7 @@ function Signup() {
       }) 
       const userInfo = await res.json()
       console.log("🚀 ~ file: page.tsx:32 ~ handleSubmit ~ userInfo:", userInfo)
-      // router.push('/login')
+      router.push('/login')
     } catch (error) {
       console.log(error);
     }  

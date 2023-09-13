@@ -43,8 +43,8 @@ function Login() {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <div className='flex justify-center items-center w-full border py-3 mb-4 gap-2 cursor-pointer rounded-lg' onClick={() => signIn('google', {callbackUrl: '/users'})}><FcGoogle size={25} /> Sign in with Google</div>
-        <div className='flex justify-center items-center w-full border py-3 mb-4 gap-2 cursor-pointer rounded-lg' onClick={() => signIn('github', {callbackUrl: '/users'})}><AiFillGithub size={25} /> Sign in with Github</div>
+        <div className='flex justify-center items-center w-full border py-3 mb-4 gap-2 cursor-pointer rounded-lg duration-200 hover:border-neutral-700' onClick={() => signIn('google', {callbackUrl: '/users'})}><FcGoogle size={25} /> Sign in with Google</div>
+        <div className='flex justify-center items-center w-full border py-3 mb-4 gap-2 cursor-pointer rounded-lg duration-200 hover:border-neutral-700' onClick={() => signIn('github', {callbackUrl: '/users'})}><AiFillGithub size={25} /> Sign in with Github</div>
 <hr className='my-4' />
         <form className="space-y-6" onSubmit={handleSubmit}>
           <div>
