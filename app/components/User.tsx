@@ -10,7 +10,7 @@ function User({name, img}) {
   const router = useRouter();
 
   const handleClick = async() => {
-    router.push(`/moviepage`)
+    router.push(`/browse`)
   }
 
   return (

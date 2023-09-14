@@ -4,7 +4,7 @@ import { redirect } from "next/navigation"
 import PopularMovies from "../components/movies/PopularMovies"
 
 
-async function MoviePage() {
+async function Browse() {
 
   const data = await getServerSession(authOptions)
 
@@ -23,4 +23,4 @@ async function MoviePage() {
   )
 }
 
-export default MoviePage
+export default Browse
