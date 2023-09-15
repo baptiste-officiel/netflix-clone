@@ -9,7 +9,7 @@ async function Browse() {
   const data = await getServerSession(authOptions)
 
   if (!data) {
-    redirect('/api/auth/signin?callbackUrl=/movies')
+    redirect('/api/auth/signin?callbackUrl=/browse')
   } 
 
   console.log(data);

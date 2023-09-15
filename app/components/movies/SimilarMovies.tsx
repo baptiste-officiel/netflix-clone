@@ -63,9 +63,9 @@ function SimilarMovies() {
             item.poster_path && 
             <SplideSlide key={item.id}>
                 <div key={item.id} className="group relative">
-            <Image src={`https://image.tmdb.org/t/p/original${item.poster_path}`} alt={item.title} width={250} height={300} className="rounded-sm scale-100 group-hover:scale-110" />
+            <Image src={`https://image.tmdb.org/t/p/original${item.poster_path}`} alt={item.title} width={250} height={300} className="rounded-sm max-h-[300px]" />
             <div className="bg-neutral-900 w-full h-full absolute top-0 opacity-0 group-hover:opacity-80 duration-300 z-20"></div>
-            <Link href={`/movie/${item.id}`} className="opacity-0 absolute z-20 group-hover:opacity-100 top-2 right-2 duration-300"><AiOutlineInfoCircle size={30} style={{color: 'red'}} /></Link>
+            <Link href={`/movie/${item.id}`} className="opacity-0 absolute z-20 group-hover:opacity-100 top-2 right-2 duration-300"><AiOutlineInfoCircle size={30} style={{color: 'white'}} /></Link>
           </div>
             </SplideSlide>
       )}

@@ -46,7 +46,7 @@ export default function PopularMovies() {
           <div className="bg-gradient-to-t from-neutral-900 min-h-screen w-full absolute z-0"></div>
           <Image src={`https://image.tmdb.org/t/p/original${topMovie.backdrop_path}`} alt={topMovie.title} width={1400} height={1000} className="min-w-full min-h-screen max-h-screen object-cover object-center" />
           <div className="absolute top-[65%] w-full sm:left-4 sm:max-w-lg sm:top-[50%] md:top-[40%]">
-          <h4 className="text-7xl text-neutral-200 text-center uppercase sm:text-left sm:font-bold">{topMovie.title}</h4>
+          <h4 className="text-7xl text-neutral-200 text-center uppercase sm:text-left sm:font-bold order-1">{topMovie.title}</h4>
           <div className="items-center gap-4 mt-2 ml-2 hidden sm:flex">
           <p className="text-green-400 text-md">{topMovie.vote_average}/10</p>
           <p className="text-neutral-400 text-md">{topMovie.release_date && topMovie.release_date.slice(0, 4)}</p>
@@ -90,9 +90,9 @@ export default function PopularMovies() {
         popularMovies.map((item) =>
           <SplideSlide key={item.id}>
             <div key={item.id} className="group relative">
-            <Image src={`https://image.tmdb.org/t/p/original${item.poster_path}`} alt={item.title} width={250} height={300} className="rounded-sm" />
+            <Image src={`https://image.tmdb.org/t/p/original${item.poster_path}`} alt={item.title} width={250} height={300} className="rounded-sm max-h-[300px]" />
             <div className="bg-neutral-900 w-full h-full absolute top-0 opacity-0 group-hover:opacity-80 duration-300 z-20"></div>
-            <Link href={`/movie/${item.id}`} className="opacity-0 absolute z-20 group-hover:opacity-100 top-2 right-2 duration-300"><AiOutlineInfoCircle size={30} style={{color: 'red'}} /></Link>
+            <Link href={`/movie/${item.id}`} className="opacity-0 absolute z-20 group-hover:opacity-100 top-2 right-2 duration-300"><AiOutlineInfoCircle size={30} style={{color: 'white'}} /></Link>
           </div>
           </SplideSlide>
         )
