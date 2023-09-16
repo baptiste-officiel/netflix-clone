@@ -35,7 +35,7 @@ function Navbar() {
   window.addEventListener('scroll', function(){
     // console.log(window.scrollY);
 
-    if (window.scrollY > 135) {
+    if (window.scrollY > 35) {
       setIsScroll(true)
     } else {
       setIsScroll(false)
@@ -59,7 +59,7 @@ function Navbar() {
         {!session ? 
         <nav className='relative flex justify-between items-center max-w-5xl w-full mx-auto py-2 px-4 lg:px-0'>
         <div className='flex justify-between items-center gap-4'>
-          <Link href='/'><Image src='/img/logo-red.png' width={50} height={50} alt='logo' className='mr-8' /></Link>
+          <Link href='/browse'><Image src='/img/logo-red.png' width={50} height={50} alt='logo' className='mr-8' /></Link>
         </div>
         <div className='flex items-center gap-4'>
         <Link href='/register' className='hover:text-neutral-600 duration-100 font-medium'>Sign Up</Link>
@@ -69,7 +69,7 @@ function Navbar() {
      : 
     <nav className='relative flex justify-between items-center max-w-5xl w-full mx-auto py-2 px-4 lg:px-0'>
     <div className='flex justify-between items-center gap-4'>
-      <Link href='/'><Image src='/img/logo-red.png' width={50} height={50} alt='logo' className='mr-8' /></Link>
+      <Link href='/browse'><Image src='/img/logo-red.png' width={50} height={50} alt='logo' className='mr-8' /></Link>
       <ul className={`flex fixed bottom-0 left-0 p-4 text-white bg-neutral-900 w-full justify-between items-center gap-3 list-none ${isScroll ? 'sm:text-white' : 'sm:text-black'} sm:relative sm:bg-transparent`}>
           <li className='flex flex-col justify-between items-center gap-2 text-sm font-light cursor-pointer w-[25%] text-center border-r sm:w-auto sm:border-none sm:font-medium sm:text-base'><span className='sm:hidden'><BiHomeAlt size={25} /></span>Home</li>
           <li className='flex flex-col justify-between items-center gap-2 text-sm font-light cursor-pointer w-[25%] text-center border-r sm:w-auto sm:border-none sm:font-medium sm:text-base'><span className='sm:hidden'><RiMovieLine size={25} /></span>Series</li>
