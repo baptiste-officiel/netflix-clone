@@ -17,7 +17,7 @@ async function Browse() {
   
 
   return (
-    <div className='bg-gradient-to-b from-neutral-500 to-black min-h-screen '>
+    <div className='bg-black min-h-screen '>
       {/* <h1>{data.user?.name}</h1> */}
       <PopularMovies />
       <DiscoverMovies />

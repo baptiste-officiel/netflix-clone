@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
+import toast from 'react-hot-toast'
 
 
 function Signup() {
@@ -27,6 +28,7 @@ function Signup() {
       const userInfo = await res.json()
       console.log("🚀 ~ file: page.tsx:32 ~ handleSubmit ~ userInfo:", userInfo)
       router.push('/login')
+      toast.success('User created')
     } catch (error) {
       console.log(error);
     }  

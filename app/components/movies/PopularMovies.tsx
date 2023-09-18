@@ -19,7 +19,6 @@ export default function PopularMovies() {
     const getMovies = async() => {
         const res = await fetch(`${url}/movie/popular?api_key=${api_key}&language=en-US&page=1`)
         const data = await res.json()
-        // console.log("🚀 ~ file: Movies.tsx:12 ~ getMovies ~ data:", data)
 
         setPopularMovies(data.results.slice(1, 20))
         setTopMovie(data.results[0])
@@ -31,16 +30,10 @@ export default function PopularMovies() {
 
     console.log(topMovie);
 
-   
-    // setDate(topMovie.release_date.slice(0, 4))
-    
-    // console.log(date);
-    
-    // releaseDate 
-    
 
   return (
     <div>
+      {/* TopMovie at the top of the app  */}
       {topMovie && 
         <div className="relative">
           <div className="bg-gradient-to-t from-neutral-900 min-h-screen w-full absolute z-0"></div>
@@ -59,6 +52,8 @@ export default function PopularMovies() {
           </div>
         </div>
       }
+
+      {/* First slider of popular movies  */}
       <div className="relative -mt-20 z-2">
       <h2 className="text-xl text-white font-bold pb-4 p-2 sm:text-2xl">Popular movies on Netflix Clone</h2>
       <div className="bg-gradient-to-t from-black px-2">

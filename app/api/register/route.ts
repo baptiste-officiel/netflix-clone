@@ -21,10 +21,12 @@ export async function POST(
     } = body;
     console.log("🚀 ~ file: route.ts:5 ~ body:", body)
 
+    // check if all fields are filled in 
     if (!name || !email || !password) {
         return new NextResponse("Missing name, email or password", {status: 400})
     }
     
+    // check if user already exists 
     const exist = await prisma?.user.findUnique({
         where: {
             email: email

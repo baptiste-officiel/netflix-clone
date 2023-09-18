@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link';
 import { FcGoogle } from 'react-icons/fc'
 import { AiFillGithub } from 'react-icons/ai'
+import {toast} from 'react-hot-toast';
 
 
 
@@ -24,11 +25,12 @@ function Login() {
 
       try {
       signIn('credentials', {...data, redirect: false})
-      .then(() => router.push('/users'))      
-      } catch (error) {
-        console.log(error);
-        
-      }
+      .then(() => router.push('/users'))   
+    } catch (error) {
+      console.log(error);
+      toast.error('Error')
+    }
+    toast.success('Log In')   
   
     }
 
