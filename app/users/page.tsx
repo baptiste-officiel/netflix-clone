@@ -10,10 +10,12 @@ async function page() {
     const data = await getServerSession(authOptions)
 
     if (!data) {
-        redirect('/api/auth/signin?callbackUrl=/users')
+        redirect('/login')
       } else {
         console.log(data?.user?.name);
       }
+
+      
 
   return (
       <div className='pt-22 bg-black min-h-screen text-white flex flex-col gap-8 justify-center items-center'>

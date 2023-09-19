@@ -22,7 +22,7 @@ function DiscoverMovies() {
       const getMovies = async() => {
           const res = await fetch(`${url}/movie/popular?api_key=${api_key}&language=en-US&page=${page}`)
           const data = await res.json()
-          console.log("🚀 ~ file: Movies.tsx:12 ~ getMovies ~ data:", data)
+          // console.log("🚀 ~ file: Movies.tsx:12 ~ getMovies ~ data:", data)
   
           // setDataArray(data)
           setDiscoverMovies((prevData) => [...prevData, data.results])
@@ -38,20 +38,20 @@ function DiscoverMovies() {
         const observer = new IntersectionObserver((entries) => {
           if (entries[0].isIntersecting) {
             getMovies();
-            console.log(entries);
+            // console.log(entries);
           }
         });
         observer.observe(bottom.current);
       }, []);
   
-    console.log("🚀 ~ file: DiscoverMovies.tsx:18 ~ DiscoverMovies ~ dataArray:", discoverMovies);
+    // console.log("🚀 ~ file: DiscoverMovies.tsx:18 ~ DiscoverMovies ~ dataArray:", discoverMovies);
       
 
   return (
     <>
     {discoverMovies && 
-      discoverMovies.map((items) => 
-      <div className="relative mt-8 bg-black" key={items.page}>
+      discoverMovies.map((items, index) => 
+      <div className="relative mt-8 bg-black" key={index}>
       <h2 className="text-xl text-white font-bold pb-4 p-2 sm:text-2xl">Discover on Netflix Clone</h2>
       <div className="bg-gradient-to-t from-black px-2">
       <Splide
@@ -78,10 +78,10 @@ function DiscoverMovies() {
           },
         }
       }}>
-      {items.map((item) =>
+      {items.map((item: any) =>
       <SplideSlide key={item.id}>
-            <div key={item.id} className="group relative">
-            <Image src={`https://image.tmdb.org/t/p/original${item.poster_path}`} alt={item.title} width={250} height={300} className="rounded-sm max-h-[300px]" />
+            <div className="group relative">
+            <Image src={`https://image.tmdb.org/t/p/original${item.poster_path}`} alt={item.title && item.title || !item.title ? item.original_title : item.original_title || 'movie'} width={250} height={300} className="rounded-sm max-h-[300px]" />
             <div className="bg-neutral-900 w-full h-full absolute top-0 opacity-0 group-hover:opacity-80 duration-300 z-20"></div>
             <Link href={`/movie/${item.id}`} className="opacity-0 absolute z-20 group-hover:opacity-100 top-2 right-2 duration-300"><AiOutlineInfoCircle size={30} style={{color: 'white'}} /></Link>
           </div>

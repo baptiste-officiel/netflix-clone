@@ -32,7 +32,7 @@ function SimilarMovies() {
     }, []);
 
   return (
-    <div className='mt-20 pb-4 px-2'>
+    <div className='mt-20 pb-28 sm:pb-4 px-2'>
       <h4 className='text-xl text-white font-bold pb-4 p-2 sm:text-2xl'>Similar</h4>
       <Splide
       options={{

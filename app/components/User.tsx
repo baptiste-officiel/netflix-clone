@@ -1,6 +1,5 @@
 'use client'
 
-import { redirect } from "next/navigation"
 import { useRouter } from "next/navigation"
 import Image from 'next/image'
 
@@ -9,7 +8,7 @@ function User({name, img}) {
 
   const router = useRouter();
 
-  const handleClick = async() => {
+  const handleClick = () => {
     router.push(`/browse`)
   }
 

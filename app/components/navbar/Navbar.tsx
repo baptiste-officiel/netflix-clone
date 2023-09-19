@@ -55,26 +55,26 @@ function Navbar() {
   // }
 
   return (
-    <div className={`w-full py-2 fixed duration-150 ${!session ? 'bg-white': isScroll ? 'bg-neutral-900' : 'bg-transparent'} z-10`}>
-        {!session ? 
+    <div className={`w-full py-2 fixed duration-150 ${!session ? 'bg-black': isScroll ? 'bg-black' : 'bg-transparent'} z-10`}>
+        {!session ? (
         <nav className='relative flex justify-between items-center max-w-5xl w-full mx-auto py-2 px-4 lg:px-0'>
         <div className='flex justify-between items-center gap-4'>
-          <Link href='/browse'><Image src='/img/logo-red.png' width={50} height={50} alt='logo' className='mr-8' /></Link>
+          <Link href='/browse'><Image src='/img/logo.png' width={140} height={50} alt='logo' className='mr-8' /></Link>
         </div>
         <div className='flex items-center gap-4'>
-        <Link href='/register' className='hover:text-neutral-600 duration-100 font-medium'>Sign Up</Link>
-        <Link href='/login' className='py-2 px-4 border-black border-[2px] rounded-lg bg-black text-white hover:text-black hover:bg-transparent duration-300 font-medium' >Log In</Link>
+        <Link href='/register' className='text-white hover:text-neutral-300 duration-100 font-medium hidden sm:block'>Sign Up</Link>
+        <Link href='/login' className='py-2 px-4 border-white border-[2px] rounded-lg bg-black text-white hover:text-black hover:bg-white duration-300 font-medium' >Log In</Link>
         </div>
     </nav>
-     : 
+         ) : ( 
     <nav className='relative flex justify-between items-center max-w-5xl w-full mx-auto py-2 px-4 lg:px-0'>
     <div className='flex justify-between items-center gap-4'>
-      <Link href='/browse'><Image src='/img/logo-red.png' width={50} height={50} alt='logo' className='mr-8' /></Link>
+      <Link href='/browse'><Image src='/img/logo.png' width={140} height={50} alt='logo' className='mr-8' /></Link>
       <ul className={`flex fixed bottom-0 left-0 p-4 text-white bg-neutral-900 w-full justify-between items-center gap-3 list-none ${isScroll ? 'sm:text-white' : 'sm:text-black'} sm:relative sm:bg-transparent`}>
-          <li className='flex flex-col justify-between items-center gap-2 text-sm font-light cursor-pointer w-[25%] text-center border-r sm:w-auto sm:border-none sm:font-medium sm:text-base'><span className='sm:hidden'><BiHomeAlt size={25} /></span>Home</li>
-          <li className='flex flex-col justify-between items-center gap-2 text-sm font-light cursor-pointer w-[25%] text-center border-r sm:w-auto sm:border-none sm:font-medium sm:text-base'><span className='sm:hidden'><RiMovieLine size={25} /></span>Series</li>
-          <li className='flex flex-col justify-between items-center gap-2 text-sm font-light cursor-pointer w-[25%] text-center border-r sm:w-auto sm:border-none sm:font-medium sm:text-base'><span className='sm:hidden'><MdOutlineLocalMovies size={25} /></span>Movies</li>
-          <li className='flex flex-col justify-between items-center gap-2 text-sm font-light cursor-pointer w-[25%] text-center sm:w-auto sm:font-medium sm:text-base'><span className='sm:hidden'><BiDownload size={25} /></span>My List</li>
+          <li className='flex flex-col justify-between items-center gap-1 text-sm font-light cursor-pointer w-[25%] text-center border-r sm:w-auto sm:border-none sm:font-medium sm:text-base'><span className='sm:hidden'><BiHomeAlt size={25} /></span>Home</li>
+          <li className='flex flex-col justify-between items-center gap-1 text-sm font-light cursor-pointer w-[25%] text-center border-r sm:w-auto sm:border-none sm:font-medium sm:text-base'><span className='sm:hidden'><RiMovieLine size={25} /></span>Series</li>
+          <li className='flex flex-col justify-between items-center gap-1 text-sm font-light cursor-pointer w-[25%] text-center border-r sm:w-auto sm:border-none sm:font-medium sm:text-base'><span className='sm:hidden'><MdOutlineLocalMovies size={25} /></span>Movies</li>
+          <li className='flex flex-col justify-between items-center gap-1 text-sm font-light cursor-pointer w-[25%] text-center sm:w-auto sm:font-medium sm:text-base'><span className='sm:hidden'><BiDownload size={25} /></span>My List</li>
       </ul>
     </div>
     <div className='flex flex-col items-center gap-4'>
@@ -99,7 +99,7 @@ function Navbar() {
       </div>
     </div>
 </nav>
-        }
+        )}
     </div>
   )
 }

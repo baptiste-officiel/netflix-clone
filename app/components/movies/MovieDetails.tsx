@@ -39,11 +39,11 @@ function MovieDetails() {
     <div className='bg-neutral-900 min-h-screen'>
         <div className="bg-gradient-to-t from-neutral-900 h-[250px] w-full absolute z-0"></div>
       {movie.backdrop_path && 
-              <Image src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.title} width={1000} height={300} className="min-w-full h-[250px] max-h-screen object-cover object-center" />
+              <Image src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.title && movie.title || !movie.title ? movie.original_title : movie.original_title || 'movie'} width={1000} height={300} className="min-w-full h-[250px] max-h-screen object-cover object-center" />
       }
     <div className={`relative w-full max-w-5xl mx-auto ${!movie.backdrop_path ? 'pt-[200px]' : '-mt-[50px]'} flex gap-8 px-2`}>
       {movie.poster_path && 
-            <Image src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt={movie.title} width={200} height={200} className="h-[300px] w-[200px] object-cover object-center rounded-sm hidden sm:block" />
+            <Image src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt={movie.title && movie.title || !movie.title ? movie.original_title : movie.original_title || 'movie'} width={200} height={200} className="h-[300px] w-[200px] object-cover object-center rounded-sm hidden sm:block" />
       }
       <div className={`flex flex-col justify-between`}>
         <p className={`text-4xl ${movie.vote_average && movie.vote_average > 4 ? movie.vote_average <= 6.5 ? 'text-orange-500' : 'text-green-500' : 'text-red-500'} order-1 sm:order-1`}>{movie.vote_average && (movie.vote_average).toFixed(1)}<span className='text-lg'> /10</span></p>
