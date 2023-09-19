@@ -28,7 +28,7 @@ export default function PopularMovies() {
       getMovies()
     }, [])
 
-    console.log(topMovie);
+    console.log(popularMovies);
 
 
   return (
