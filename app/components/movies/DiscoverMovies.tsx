@@ -16,7 +16,7 @@ function DiscoverMovies() {
 
     // const [dataArray, setDataArray] = useState<any[]>([])
     const [discoverMovies, setDiscoverMovies] = useState<any[]>([])
-    const bottom = useRef()
+    const bottom = React.useRef<HTMLDivElement | null>(null)
     let page = 2;
   
       const getMovies = async() => {
@@ -41,7 +41,7 @@ function DiscoverMovies() {
             // console.log(entries);
           }
         });
-        observer.observe(bottom.current);
+        observer.observe(bottom.current as Element);
       }, []);
   
     // console.log("🚀 ~ file: DiscoverMovies.tsx:18 ~ DiscoverMovies ~ dataArray:", discoverMovies);

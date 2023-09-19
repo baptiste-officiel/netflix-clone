@@ -25,7 +25,7 @@ function MovieDetails() {
   const getMovieDetails = async() => {
     const res = await fetch(`${url}/${params.id}?api_key=${api_key}&language=en-US`)
     const data = await res.json()
-    console.log("🚀 ~ file: MovieDetails.tsx:16 ~ getMovieDetails ~ data:", data)
+    // console.log("🚀 ~ file: MovieDetails.tsx:16 ~ getMovieDetails ~ data:", data)
 
     setMovie(data)
   }
