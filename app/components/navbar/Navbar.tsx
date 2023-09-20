@@ -12,7 +12,7 @@ import { MdOutlineLocalMovies } from 'react-icons/md'
 import { RiMovieLine } from 'react-icons/ri'
 
 
-function Navbar() {
+const Navbar = () => {
 
   const {data: session} = useSession();
 
@@ -27,11 +27,9 @@ function Navbar() {
       setOpenMenu(false)
     }
   }
-
-  console.log('menu : ' + openMenu);
   
-
-  
+  // use this to avoid error on server 
+if (typeof window !== 'undefined') {
   window.addEventListener('scroll', function(){
     // console.log(window.scrollY);
 
@@ -40,7 +38,8 @@ function Navbar() {
     } else {
       setIsScroll(false)
     }
-  })
+  }) 
+}
 
   console.log(isScroll);
   

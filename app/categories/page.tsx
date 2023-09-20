@@ -1,11 +1,11 @@
 import React from 'react'
-import MoviesByGenre from '../components/movies/MoviesByGenre'
+import Genres from '../components/genres/Genres'
 
 function page() {
   return (
     <div className='pt-28 max-w-6xl mx-auto'>
       Categories
-      <MoviesByGenre />
+      <Genres />
     </div>
   )
 }
