@@ -31,8 +31,14 @@ function SimilarMovies() {
       getSimilarMovies()
     }, []);
 
+    console.log(similarMovies);
+    
+
   return (
-    <div className='mt-20 pb-28 sm:pb-4 px-2'>
+    <>
+    {/* Check if similarMovies contains data  */}
+    {similarMovies.length!== 0 && 
+      <div className='mt-20 pb-28 sm:pb-4 px-2'>
       <h4 className='text-xl text-white font-bold pb-4 p-2 sm:text-2xl'>Similar</h4>
       <Splide
       options={{
@@ -62,16 +68,22 @@ function SimilarMovies() {
         similarMovies.map((item) => 
             item.poster_path && 
             <SplideSlide key={item.id}>
-                <div key={item.id} className="group relative">
-            <Image src={`https://image.tmdb.org/t/p/original${item.poster_path}`} alt={item.title} width={250} height={300} className="rounded-sm max-h-[300px]" />
-            <div className="bg-neutral-900 w-full h-full absolute top-0 opacity-0 group-hover:opacity-80 duration-300 z-20"></div>
-            <Link href={`/movie/${item.id}`} className="opacity-0 absolute z-20 group-hover:opacity-100 top-2 right-2 duration-300"><AiOutlineInfoCircle size={30} style={{color: 'white'}} /></Link>
+            <Link href={`/movie/${item.id}`} className=" ">
+            <div className="group relative">
+              <div className="rounded-sm max-h-[300px] w-full overflow-hidden">
+              <Image src={`https://image.tmdb.org/t/p/original${item.poster_path}`} alt={item.title && item.title || !item.title ? item.original_title : item.original_title || 'movie'} width={250} height={300} className="rounded-sm w-full h-full scale-100 transition duration-500 group-hover:scale-125" />
+              </div>
+            <div className="bg-neutral-900 w-full h-full absolute top-0 opacity-0 group-hover:opacity-80 duration-300 z-10"></div>
+            <div className="absolute top-2 right-2 z-10 duration-300 opacity-0 group-hover:opacity-100"><AiOutlineInfoCircle size={30} style={{color: 'white'}} /></div>
           </div>
+          </Link>
             </SplideSlide>
       )}
         </Splide>
 
     </div>
+    }
+    </>
   )
 }
 

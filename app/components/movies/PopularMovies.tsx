@@ -60,7 +60,7 @@ export default function PopularMovies() {
       <div className="bg-gradient-to-t from-black px-2">
       <Splide
       options={{
-        perPage:7,
+        perPage:1,
         pagination: false,
         drag: 'free',
         gap: '0.4rem',
@@ -85,11 +85,15 @@ export default function PopularMovies() {
       {popularMovies && 
         popularMovies.map((item) =>
           <SplideSlide key={item.id}>
+            <Link href={`/movie/${item.id}`} className=" ">
             <div className="group relative">
-            <Image src={`https://image.tmdb.org/t/p/original${item.poster_path}`} alt={item.title && item.title || !item.title ? item.original_title : item.original_title || 'movie'} width={250} height={300} className="rounded-sm max-h-[300px]" />
-            <div className="bg-neutral-900 w-full h-full absolute top-0 opacity-0 group-hover:opacity-80 duration-300 z-20"></div>
-            <Link href={`/movie/${item.id}`} className="opacity-0 absolute z-20 group-hover:opacity-100 top-2 right-2 duration-300"><AiOutlineInfoCircle size={30} style={{color: 'white'}} /></Link>
+              <div className="rounded-sm max-h-[300px] w-full overflow-hidden">
+              <Image src={`https://image.tmdb.org/t/p/original${item.poster_path}`} alt={item.title && item.title || !item.title ? item.original_title : item.original_title || 'movie'} width={250} height={300} className="rounded-sm w-full h-full scale-100 transition duration-500 group-hover:scale-125" />
+              </div>
+            <div className="bg-neutral-900 w-full h-full absolute top-0 opacity-0 group-hover:opacity-80 duration-300 z-10"></div>
+            <div className="absolute top-2 right-2 z-10 duration-300 opacity-0 group-hover:opacity-100"><AiOutlineInfoCircle size={30} style={{color: 'white'}} /></div>
           </div>
+          </Link>
           </SplideSlide>
         )
       }
