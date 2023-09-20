@@ -14,12 +14,13 @@ const api_key = '698bd3478bb74b5fd60f2f3e36bfdc60'
 
 function DiscoverMovies() {
 
-    // const [dataArray, setDataArray] = useState<any[]>([])
+    const [isLoading, setIsLoading] = useState(false)
     const [discoverMovies, setDiscoverMovies] = useState<any[]>([])
     const bottom = React.useRef<HTMLDivElement | null>(null)
     let page = 2;
   
       const getMovies = async() => {
+        setIsLoading(true)
           const res = await fetch(`${url}/movie/popular?api_key=${api_key}&language=en-US&page=${page}`)
           const data = await res.json()
           // console.log("🚀 ~ file: Movies.tsx:12 ~ getMovies ~ data:", data)
@@ -28,6 +29,7 @@ function DiscoverMovies() {
           setDiscoverMovies((prevData) => [...prevData, data.results])
           // setDiscoverMovies(data.results)
           page++;
+          setIsLoading(false)
       }
   
       // useEffect(() => {
@@ -97,6 +99,7 @@ function DiscoverMovies() {
       )
     }
     <div ref={bottom} />
+    <div className={`${isLoading ? 'block' : 'hidden'} fixed bottom-0 flex justify-center items-center bg-gradient-to-t from-neutral-950 h-[200px] w-full text-white text-2xl font-semibold`}>Loading...</div>
     </>
   )
 }
