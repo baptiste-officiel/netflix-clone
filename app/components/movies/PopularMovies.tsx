@@ -60,7 +60,7 @@ export default function PopularMovies() {
       <div className="bg-gradient-to-t from-black px-2">
       <Splide
       options={{
-        perPage:1,
+        perPage:7,
         pagination: false,
         drag: 'free',
         gap: '0.4rem',
