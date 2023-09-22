@@ -16,6 +16,7 @@ export default function PopularMovies() {
   const [popularMovies, setPopularMovies] = useState<any[]>([])
   const [topMovie, setTopMovie] = useState<{[key: string]: any}>({})
 
+  // get Popular movies frome the moviedb, add one in topMovie ans others in popularMovies 
     const getMovies = async() => {
         const res = await fetch(`${url}/movie/popular?api_key=${api_key}&language=en-US&page=1`)
         const data = await res.json()
@@ -27,9 +28,6 @@ export default function PopularMovies() {
     useEffect(() => {
       getMovies()
     }, [])
-
-    console.log(popularMovies);
-
 
   return (
     <div>

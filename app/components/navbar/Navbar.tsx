@@ -20,6 +20,7 @@ const Navbar = () => {
 
   const [openMenu, setOpenMenu] = useState(false);
 
+  // Toggle the value for session menu 
   const toggleMenu = () => {
     if (!openMenu) {
       setOpenMenu(true)
@@ -39,22 +40,11 @@ if (typeof window !== 'undefined') {
       setIsScroll(false)
     }
   }) 
-}
-
-  console.log(isScroll);
-  
-  
-  
+}  
   const router = useRouter()
 
-  // const logOut = () => {
-  //   // e.preventDefault();
-
-  //   router.push('/')
-  // }
-
   return (
-    <div className={`w-full py-2 fixed duration-150 ${!session ? 'bg-black': isScroll ? 'bg-black' : 'bg-transparent'} z-10`}>
+    <div className={`w-full py-2 fixed duration-150 ${!session ? 'bg-black': isScroll ? 'bg-black' : 'bg-transparent'} z-50`}>
         {!session ? (
         <nav className='relative flex justify-between items-center max-w-5xl w-full mx-auto py-2 px-4 lg:px-0'>
         <div className='flex justify-between items-center gap-4'>

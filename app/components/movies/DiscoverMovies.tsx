@@ -82,7 +82,7 @@ function DiscoverMovies() {
       }}>
       {items.map((item: any) =>
       <SplideSlide key={item.id}>
-            <Link href={`/movie/${item.id}`} className=" ">
+            <Link href={`/movie/${item.id}`}>
             <div className="group relative">
               <div className="rounded-sm max-h-[300px] w-full overflow-hidden">
               <Image src={`https://image.tmdb.org/t/p/original${item.poster_path}`} alt={item.title && item.title || !item.title ? item.original_title : item.original_title || 'movie'} width={250} height={300} className="rounded-sm w-full h-full scale-100 transition duration-500 group-hover:scale-125" />
