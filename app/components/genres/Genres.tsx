@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import Image from 'next/image'
 import '@splidejs/react-splide/css';
 import { AiOutlinePlusCircle, AiOutlineInfoCircle } from 'react-icons/ai'
@@ -18,6 +18,7 @@ function Genres() {
   const [genreId, setGenreId] = useState('')
   const [genreLabel, setGenreLabel] = useState<any[]>([])
   const [moviesByGenre, setMoviesByGenre] = useState<any[]>([])
+  const bottom = React.useRef<HTMLDivElement | null>(null)
   
   const getGenres = async() => {
     const res = await fetch(`${url}/genre/movie/list?api_key=${api_key}&language=en-US`)
@@ -27,6 +28,7 @@ function Genres() {
       
     // get genre from clicking the button and check if genreId is empty
     const getGenreId = (id: string, label: string) => {
+      setMoviesByGenre([])
       console.log(id);
       if (genreId) {
         setGenreId(genreId + `,${id}`)
@@ -42,14 +44,19 @@ function Genres() {
       setMoviesByGenre([])
     }
       
+    let page = 1;
     const getMoviesByGenre = async(genreId: any) => {
       if (genreId) {
-        const res = await fetch(`${url}/discover/movie?api_key=${api_key}&language=en-US&with_genres=${genreId}`)
+        const res = await fetch(`${url}/discover/movie?api_key=${api_key}&language=en-US&with_genres=${genreId}&page=${page}`)
         const data = await res?.json()
         console.log("🚀 ~ file: Genres.tsx:34 ~ getMoviesByGenre ~ data:", data.results)
-        setMoviesByGenre(data.results)
+        setMoviesByGenre([...moviesByGenre, ...data.results])
+        page++;
+        // setIsLoading(false)
       }
     }
+
+    
 
     console.log('gerneId:', genreId);
     
@@ -61,27 +68,40 @@ function Genres() {
   useEffect(() => {
     getMoviesByGenre(genreId)
   }, [genreId])
+
+  // useEffect(() => {  
+  //   const observer = new IntersectionObserver((entries) => {
+  //     if (entries[0].isIntersecting) {
+  //       getMoviesByGenre(28);
+  //       console.log(entries);
+  //     }
+  //   });
+  //   observer.observe(bottom.current as Element);
+  // }, []);
+
+  console.log(moviesByGenre);
+
     
   return (
     <>
         <div className="flex flex-wrap gap-3 mt-4">
         {genres && 
             genres.map((item) => 
-                <Button key={item.id} id={item.id} label={item.name} onClick={getGenreId} />
+                <Button key={item.id} id={item.id} label={item.name} onClick={getGenreId} categoryAction />
             )
         }
         </div>
         <div className="mt-8">
-          <div className="flex items-center gap-2">
-          <div>
+          <div className="flex justify-between items-center gap-2 py-4">          
+          <div className="flex max-w-6xl overflow-hidden gap-3">
           {genreLabel && 
             genreLabel.map((item) => 
-              <h3 key={item} className="text-2xl font-medium pb-3">{item}</h3>
+              <h3 key={item} className="text-2xl font-medium">{item}</h3>
             )
           }
           </div>
-          {genreLabel && 
-            <Button label="Reset" onClick={handleReset} />
+          {genreLabel.length > 0 && 
+            <Button label="Reset" onClick={handleReset} resetAction />
           }
           </div>
           <div className="flex flex-wrap gap-4 justify-between items-center">
@@ -102,6 +122,7 @@ function Genres() {
             }
           </div>
         </div>
+        <div ref={bottom} />
     </>
   )
 }
