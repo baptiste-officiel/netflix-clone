@@ -93,7 +93,7 @@ function Genres() {
         </div>
         <div className="mt-8">
           <div className="flex justify-between items-center gap-2 py-4">          
-          <div className="flex max-w-6xl overflow-hidden gap-3">
+          <div className="flex max-w-full overflow-hidden gap-3">
           {genreLabel && 
             genreLabel.map((item) => 
               <h3 key={item} className="text-2xl font-medium">{item}</h3>
@@ -104,10 +104,10 @@ function Genres() {
             <Button label="Reset" onClick={handleReset} resetAction />
           }
           </div>
-          <div className="flex flex-wrap gap-4 justify-between items-center">
+          <div className="flex flex-wrap gap-4 justify-around items-center lg:justify-between">
             {moviesByGenre && 
               moviesByGenre.map((item) => 
-                <div key={item.id} className={`w-1/5 rounded-md`}>
+                <div key={item.id} className={`rounded-md w-2/5 sm:w-3/12 lg:w-1/5`}>
                   <Link href={`/movie/${item.id}`}>
                     <div className="group relative">
                       <div className="rounded-sm w-full overflow-hidden">
