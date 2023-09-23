@@ -25,7 +25,7 @@ const LoggedNavbar:React.FC<NavProps> = ({
       <ul className={`flex fixed bottom-0 left-0 p-4 text-white bg-neutral-900 w-full justify-between items-center gap-3 list-none ${isScroll ? 'sm:text-white' : 'sm:text-black'} sm:relative sm:bg-transparent`}>
           <li className=' text-sm font-light cursor-pointer w-[25%] text-center border-r sm:w-auto sm:border-none sm:font-medium sm:text-base'><Link href={'/browse'} className='flex flex-col justify-between items-center'><span className='sm:hidden'><BiHomeAlt size={25} /></span>Home</Link></li>
           <li className='text-sm font-light cursor-pointer w-[25%] text-center border-r sm:w-auto sm:border-none sm:font-medium sm:text-base'><Link href={'/categories'} className='flex flex-col justify-between items-center'><span className='sm:hidden'><MdOutlineLocalMovies size={25} /></span>Categories</Link></li>
-          <li className='text-sm font-light cursor-pointer w-[25%] text-center border-r sm:w-auto sm:border-none sm:font-medium sm:text-base'><Link href={'/'} className='flex flex-col justify-between items-center'><span className='sm:hidden'><RiMovieLine size={25} /></span>Series</Link></li>
+          <li className='text-sm font-light cursor-pointer w-[25%] text-center border-r sm:w-auto sm:border-none sm:font-medium sm:text-base'><Link href={'/series'} className='flex flex-col justify-between items-center'><span className='sm:hidden'><RiMovieLine size={25} /></span>Series</Link></li>
           <li className='text-sm font-light cursor-pointer w-[25%] text-center sm:w-auto sm:font-medium sm:text-base'><Link href={'/'} className='flex flex-col justify-between items-center'><span className='sm:hidden'><BiDownload size={25} /></span>My List</Link></li>
       </ul>
     </div>
