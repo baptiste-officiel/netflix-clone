@@ -9,7 +9,6 @@ import Button from "../buttons/Button";
 
 
 const url = 'https://api.themoviedb.org/3';
-const api_key = '698bd3478bb74b5fd60f2f3e36bfdc60'
 
 function Genres() {
 
@@ -21,7 +20,7 @@ function Genres() {
   const bottom = React.useRef<HTMLDivElement | null>(null)
   
   const getGenres = async() => {
-    const res = await fetch(`${url}/genre/movie/list?api_key=${api_key}&language=en-US`)
+    const res = await fetch(`${url}/genre/movie/list?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US`)
         const data = await res.json()
         setGenres(data.genres)
     }
@@ -47,7 +46,7 @@ function Genres() {
     let page = 1;
     const getMoviesByGenre = async(genreId: any) => {
       if (genreId) {
-        const res = await fetch(`${url}/discover/movie?api_key=${api_key}&language=en-US&with_genres=${genreId}&page=${page}`)
+        const res = await fetch(`${url}/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&with_genres=${genreId}&page=${page}`)
         const data = await res?.json()
         console.log("🚀 ~ file: Genres.tsx:34 ~ getMoviesByGenre ~ data:", data.results)
         setMoviesByGenre([...moviesByGenre, ...data.results])

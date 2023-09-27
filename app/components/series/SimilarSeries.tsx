@@ -10,7 +10,6 @@ import { AiOutlineInfoCircle } from 'react-icons/ai'
 
 
 const url = 'https://api.themoviedb.org/3/tv';
-const api_key = '698bd3478bb74b5fd60f2f3e36bfdc60'
 
 function SimilarSeries() {
 
@@ -20,7 +19,7 @@ function SimilarSeries() {
     const [similarSeries, setSimilarSeries] = useState<any[]>([])
   
     const getSimilarSeries = async() => {
-      const res = await fetch(`${url}/${params.id}/similar?api_key=${api_key}&language=en-US`)
+      const res = await fetch(`${url}/${params.id}/similar?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US`)
       const data = await res.json()
       console.log("🚀 ~ file: MovieDetails.tsx:16 ~ getSimilarSeries ~ data:", data)
   

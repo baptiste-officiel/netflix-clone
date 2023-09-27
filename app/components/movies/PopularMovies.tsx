@@ -9,7 +9,6 @@ import Link from 'next/link'
 
 
 const url = 'https://api.themoviedb.org/3';
-const api_key = '698bd3478bb74b5fd60f2f3e36bfdc60'
 
 export default function PopularMovies() {
 
@@ -18,7 +17,7 @@ export default function PopularMovies() {
 
   // get Popular movies frome the moviedb, add one in topMovie ans others in popularMovies 
     const getMovies = async() => {
-        const res = await fetch(`${url}/movie/popular?api_key=${api_key}&language=en-US&page=1`)
+        const res = await fetch(`${url}/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=1`)
         const data = await res.json()
 
         setPopularMovies(data.results.slice(1, 20))

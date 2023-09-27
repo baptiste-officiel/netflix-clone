@@ -13,7 +13,6 @@ const poppins = Poppins({ subsets: ['latin'], weight: ['400', '500', '600'] })
 
 
 const url = 'https://api.themoviedb.org/3/tv';
-const api_key = '698bd3478bb74b5fd60f2f3e36bfdc60'
 
 function SerieDetails() {
 
@@ -23,7 +22,7 @@ function SerieDetails() {
   const [serie, setSerie] = useState<{[key: string]: any}>({})
   
   const getSerieDetails = async() => {
-    const res = await fetch(`${url}/${params.id}?api_key=${api_key}&language=en-US`)
+    const res = await fetch(`${url}/${params.id}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US`)
     const data = await res.json()
     // console.log("🚀 ~ file: SerieDetails.tsx:16 ~ getSerieDetails ~ data:", data)
 

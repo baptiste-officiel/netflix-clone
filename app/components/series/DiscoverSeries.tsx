@@ -10,7 +10,6 @@ import Link from 'next/link'
 import React from 'react'
 
 const url = 'https://api.themoviedb.org/3';
-const api_key = '698bd3478bb74b5fd60f2f3e36bfdc60'
 
 function DiscoverSeries() {
 
@@ -21,7 +20,7 @@ function DiscoverSeries() {
   
       const getSeries = async() => {
         setIsLoading(true)
-          const res = await fetch(`${url}/discover/tv?api_key=${api_key}&language=en-US&page=${page}`)
+          const res = await fetch(`${url}/discover/tv?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=${page}`)
           const data = await res.json()
           // console.log("🚀 ~ file: Series.tsx:12 ~ getSeries ~ data:", data)
   
