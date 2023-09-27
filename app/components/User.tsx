@@ -3,8 +3,15 @@
 import { useRouter } from "next/navigation"
 import Image from 'next/image'
 
+interface USerProps {
+  name?: string,
+  img?: string
+}
 
-function User({name, img}) {
+
+const User:React.FC<USerProps> = ({
+  name, img
+}) => {
 
   const router = useRouter();
 
