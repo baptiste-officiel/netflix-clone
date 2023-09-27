@@ -38,8 +38,8 @@ export default function PopularSeries() {
       {topSerie && 
         <div className="relative">
           <div className="bg-gradient-to-t from-neutral-900 min-h-screen w-full absolute z-0"></div>
-          <Image src={`https://image.tmdb.org/t/p/original${topSerie.backdrop_path}`} alt={topSerie.title && topSerie.title || !topSerie.title ? topSerie.original_title : topSerie.original_title || 'Serie'} width={1400} height={1000} className="min-w-full min-h-screen max-h-screen object-cover object-center hidden sm:block" />
-          <Image src={`https://image.tmdb.org/t/p/original${topSerie.poster_path}`} alt={topSerie.title && topSerie.title || !topSerie.title ? topSerie.original_title : topSerie.original_title || 'Serie'} width={1400} height={1000} className="opacity-100 min-w-full min-h-screen max-h-screen object-cover object-center sm:opacity-0" />
+          <Image src={`https://image.tmdb.org/t/p/original${topSerie.backdrop_path}`} alt={topSerie.title && topSerie.title || !topSerie.title ? topSerie.original_title : topSerie.original_title || 'Serie'} width={1400} height={1000} className="min-w-full min-h-screen max-h-screen object-cover object-center" />
+          {/* <Image src={`https://image.tmdb.org/t/p/original${topSerie.poster_path}`} alt={topSerie.title && topSerie.title || !topSerie.title ? topSerie.original_title : topSerie.original_title || 'Serie'} width={1400} height={1000} className="opacity-100 min-w-full min-h-screen max-h-screen object-cover object-center sm:opacity-0" /> */}
           <div className="absolute top-[65%] w-full sm:left-4 sm:max-w-lg sm:top-[50%] md:top-[40%]">
           <h4 className="text-7xl text-neutral-200 text-center uppercase sm:text-left sm:font-bold order-1">{topSerie.name}</h4>
           <div className="items-center gap-4 mt-2 ml-2 hidden sm:flex">
