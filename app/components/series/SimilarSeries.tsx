@@ -3,6 +3,7 @@
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+// @ts-ignore 
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import Link from 'next/link'

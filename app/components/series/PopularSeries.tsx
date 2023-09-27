@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Image from 'next/image'
+// @ts-ignore 
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import { AiOutlinePlusCircle, AiOutlineInfoCircle } from 'react-icons/ai'

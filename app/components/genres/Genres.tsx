@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState, useRef } from "react"
 import Image from 'next/image'
-import '@splidejs/react-splide/css';
 import { AiOutlinePlusCircle, AiOutlineInfoCircle } from 'react-icons/ai'
 import Link from 'next/link'
 import Button from "../buttons/Button";
