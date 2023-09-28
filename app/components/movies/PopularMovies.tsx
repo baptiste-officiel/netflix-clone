@@ -37,12 +37,9 @@ export default function PopularMovies() {
       {/* TopMovie at the top of the app  */}
       {topMovie && 
         <div className="relative">
-          <div className="bg-gradient-to-t from-neutral-900 min-h-screen w-full absolute z-0"></div>
-          {topMovie.backdrop_path ? 
-            <Image src={`https://image.tmdb.org/t/p/original${topMovie.backdrop_path}`} alt={topMovie.title && topMovie.title || !topMovie.title ? topMovie.original_title : topMovie.original_title || 'Serie'} width={1400} height={1000} unoptimized className="min-w-full min-h-screen max-h-screen object-cover object-center" />  
-          :
-            <Image src={`https://image.tmdb.org/t/p/original${topMovie.poster_path}`} alt={topMovie.title && topMovie.title || !topMovie.title ? topMovie.original_title : topMovie.original_title || 'Serie'} width={1400} height={1000} unoptimized className="opacity-100 min-w-full min-h-screen max-h-screen object-cover object-center sm:opacity-0" />
-          }
+          <div className="bg-gradient-to-t from-neutral-900 min-h-screen w-full absolute z-0 border-none"></div>
+            <Image src={`https://image.tmdb.org/t/p/original${topMovie.backdrop_path}`} alt={topMovie.title && topMovie.title || !topMovie.title ? topMovie.original_title : topMovie.original_title || 'Serie'} width={1400} height={1000} unoptimized className="min-w-full min-h-screen max-h-screen object-cover object-center hidden sm:block" />  
+            <Image src={`https://image.tmdb.org/t/p/original${topMovie.poster_path}`} alt={topMovie.title && topMovie.title || !topMovie.title ? topMovie.original_title : topMovie.original_title || 'Serie'} width={1400} height={1000} unoptimized className="min-w-full min-h-screen max-h-screen object-cover object-center sm:hidden" />
           <div className="absolute top-[65%] w-full sm:left-4 sm:max-w-lg sm:top-[50%] md:top-[40%]">
           <h4 className="text-7xl text-neutral-200 text-center uppercase sm:text-left sm:font-bold order-1">{topMovie.title}</h4>
           <div className="items-center gap-4 mt-2 ml-2 hidden sm:flex">
