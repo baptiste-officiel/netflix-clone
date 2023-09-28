@@ -31,10 +31,6 @@ function DiscoverSeries() {
           page++;
           setIsLoading(false)
       }
-  
-      // useEffect(() => {
-      //   getSeries()
-      // }, [])
 
       useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
