@@ -37,9 +37,9 @@ function SerieDetails() {
 
   return (
     <div className='bg-neutral-900 min-h-screen'>
-        <div className="bg-gradient-to-t from-neutral-900 h-[250px] w-full absolute z-0"></div>
+        <div className="bg-gradient-to-t from-neutral-900 h-[350px] w-full absolute z-0"></div>
       {serie.backdrop_path && 
-              <Image src={`https://image.tmdb.org/t/p/original${serie.backdrop_path}`} alt={serie.name && serie.name || !serie.name ? serie.original_name : serie.original_name || 'Serie'} width={1000} height={300} className="min-w-full h-[250px] max-h-screen object-cover object-center" />
+              <Image src={`https://image.tmdb.org/t/p/original${serie.backdrop_path}`} alt={serie.name && serie.name || !serie.name ? serie.original_name : serie.original_name || 'Serie'} width={1000} height={400} className="min-w-full h-[350px] max-h-screen object-cover object-center" />
       }
     <div className={`relative w-full max-w-5xl mx-auto ${!serie.backdrop_path ? 'pt-[200px]' : '-mt-[50px]'} flex gap-8 px-2`}>
       {serie.poster_path && 

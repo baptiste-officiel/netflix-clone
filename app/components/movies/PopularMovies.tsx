@@ -40,8 +40,8 @@ export default function PopularMovies() {
           <div className="bg-gradient-to-t from-neutral-900 min-h-screen w-full absolute z-0 border-none"></div>
             <Image src={`https://image.tmdb.org/t/p/original${topMovie.backdrop_path}`} alt={topMovie.title && topMovie.title || !topMovie.title ? topMovie.original_title : topMovie.original_title || 'Serie'} width={1400} height={1000} unoptimized className="min-w-full min-h-screen max-h-screen object-cover object-center hidden sm:block" />  
             <Image src={`https://image.tmdb.org/t/p/original${topMovie.poster_path}`} alt={topMovie.title && topMovie.title || !topMovie.title ? topMovie.original_title : topMovie.original_title || 'Serie'} width={1400} height={1000} unoptimized className="min-w-full min-h-screen max-h-screen object-cover object-center sm:hidden" />
-          <div className="absolute top-[65%] w-full sm:left-4 sm:max-w-lg sm:top-[50%] md:top-[40%]">
-          <h4 className="text-7xl text-neutral-200 text-center uppercase sm:text-left sm:font-bold order-1">{topMovie.title}</h4>
+          <div className="absolute top-[65%] w-full sm:left-4 sm:max-w-lg sm:top-[50%] md:top-[40%] md:max-w-2xl">
+          <h4 className="text-3xl font-medium break-words text-neutral-200 text-center uppercase sm:text-left sm:font-bold sm:text-5xl md:text-7xl order-1">{topMovie.title}</h4>
           <div className="items-center gap-4 mt-2 ml-2 hidden sm:flex">
           <p className="text-green-400 text-md">{topMovie.vote_average}/10</p>
           <p className="text-neutral-400 text-md">{topMovie.release_date && topMovie.release_date.slice(0, 4)}</p>

@@ -36,9 +36,9 @@ function MovieDetails() {
 
   return (
     <div className='bg-neutral-900 min-h-screen'>
-        <div className="bg-gradient-to-t from-neutral-900 h-[250px] w-full absolute z-0"></div>
+        <div className="bg-gradient-to-t from-neutral-900 h-[350px] w-full absolute z-0"></div>
       {movie.backdrop_path && 
-              <Image src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.title && movie.title || !movie.title ? movie.original_title : movie.original_title || 'movie'} width={1000} height={300} className="min-w-full h-[250px] max-h-screen object-cover object-center" />
+              <Image src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.title && movie.title || !movie.title ? movie.original_title : movie.original_title || 'movie'} width={1000} height={400} className="min-w-full h-[350px] max-h-screen object-cover object-center" />
       }
     <div className={`relative w-full max-w-5xl mx-auto ${!movie.backdrop_path ? 'pt-[200px]' : '-mt-[50px]'} flex gap-8 px-2`}>
       {movie.poster_path && 

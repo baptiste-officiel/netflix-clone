@@ -41,7 +41,7 @@ export default function PopularSeries() {
             <Image src={`https://image.tmdb.org/t/p/original${topSerie.backdrop_path}`} alt={topSerie.title && topSerie.title || !topSerie.title ? topSerie.original_title : topSerie.original_title || 'Serie'} width={1400} height={1000} unoptimized className="min-w-full min-h-screen max-h-screen object-cover object-center hidden sm:block" />  
             <Image src={`https://image.tmdb.org/t/p/original${topSerie.poster_path}`} alt={topSerie.title && topSerie.title || !topSerie.title ? topSerie.original_title : topSerie.original_title || 'Serie'} width={1400} height={1000} unoptimized className="min-w-full min-h-screen max-h-screen object-cover object-center sm:hidden" />
           <div className="absolute top-[65%] w-full sm:left-4 sm:max-w-lg sm:top-[50%] md:top-[40%]">
-          <h4 className="text-7xl text-neutral-200 text-center uppercase sm:text-left sm:font-bold order-1">{topSerie.name}</h4>
+          <h4 className="text-3xl font-medium break-words text-neutral-200 text-center uppercase sm:text-left sm:font-bold sm:text-5xl md:text-7xl order-1">{topSerie.name}</h4>
           <div className="items-center gap-4 mt-2 ml-2 hidden sm:flex">
           <p className="text-green-400 text-md">{topSerie.vote_average}/10</p>
           <p className="text-neutral-400 text-md">{topSerie.first_air_date && topSerie.first_air_date.slice(0, 4)}</p>
