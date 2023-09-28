@@ -29,14 +29,20 @@ export default function PopularMovies() {
       getMovies()
     }, [])
 
+    console.log(topMovie.backdrop_path);
+    
+
   return (
     <div>
       {/* TopMovie at the top of the app  */}
       {topMovie && 
         <div className="relative">
           <div className="bg-gradient-to-t from-neutral-900 min-h-screen w-full absolute z-0"></div>
-          <Image src={`https://image.tmdb.org/t/p/original${topMovie.backdrop_path}`} alt={topMovie.title && topMovie.title || !topMovie.title ? topMovie.original_title : topMovie.original_title || 'movie'} width={1400} height={1000} className="min-w-full min-h-screen max-h-screen object-cover object-center" />
-          {/* <Image src={`https://image.tmdb.org/t/p/original${topMovie.poster_path}`} alt={topMovie.title && topMovie.title || !topMovie.title ? topMovie.original_title : topMovie.original_title || 'movie'} width={1400} height={1000} className="opacity-100 min-w-full min-h-screen max-h-screen object-cover object-center sm:opacity-0" /> */}
+          {topMovie.backdrop_path ? 
+            <Image src={`https://image.tmdb.org/t/p/original${topMovie.backdrop_path}`} alt={topMovie.title && topMovie.title || !topMovie.title ? topMovie.original_title : topMovie.original_title || 'Serie'} width={1400} height={1000} className="min-w-full min-h-screen max-h-screen object-cover object-center" />  
+          :
+            <Image src={`https://image.tmdb.org/t/p/original${topMovie.poster_path}`} alt={topMovie.title && topMovie.title || !topMovie.title ? topMovie.original_title : topMovie.original_title || 'Serie'} width={1400} height={1000} className="opacity-100 min-w-full min-h-screen max-h-screen object-cover object-center sm:opacity-0" />
+          }
           <div className="absolute top-[65%] w-full sm:left-4 sm:max-w-lg sm:top-[50%] md:top-[40%]">
           <h4 className="text-7xl text-neutral-200 text-center uppercase sm:text-left sm:font-bold order-1">{topMovie.title}</h4>
           <div className="items-center gap-4 mt-2 ml-2 hidden sm:flex">
