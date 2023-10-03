@@ -1,12 +1,20 @@
 'use client'
 
+import { useSession } from 'next-auth/react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import toast from 'react-hot-toast'
 
 
 function Signup() {
+
+  const {data: session} = useSession();
+  console.log("🚀 ~ file: page.tsx:15 ~ Login ~ data:", session)
+
+  if (session) {
+    redirect('/users')
+  } 
 
   const router = useRouter()
 

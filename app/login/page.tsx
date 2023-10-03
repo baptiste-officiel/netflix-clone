@@ -1,8 +1,8 @@
 'use client'
 
-import { signIn } from 'next-auth/react'
+import { signIn, useSession } from 'next-auth/react'
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import Link from 'next/link';
 import { FcGoogle } from 'react-icons/fc'
 import { AiFillGithub } from 'react-icons/ai'
@@ -11,6 +11,13 @@ import {toast} from 'react-hot-toast';
 
 
 function Login() {
+  const {data: session} = useSession();
+  console.log("🚀 ~ file: page.tsx:15 ~ Login ~ data:", session)
+
+  if (session) {
+    redirect('/users')
+  } 
+
 
   const router = useRouter();
 
