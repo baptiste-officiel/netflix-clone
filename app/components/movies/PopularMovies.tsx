@@ -40,7 +40,7 @@ export default function PopularMovies() {
           <div className="bg-gradient-to-t from-neutral-900 min-h-screen w-full absolute z-0 border-none"></div>
             <Image src={`https://image.tmdb.org/t/p/original${topMovie.backdrop_path}`} alt={topMovie.title && topMovie.title || !topMovie.title ? topMovie.original_title : topMovie.original_title || 'Serie'} width={1400} height={1000} unoptimized className="min-w-full min-h-screen max-h-screen object-cover object-center hidden sm:block" />  
             <Image src={`https://image.tmdb.org/t/p/original${topMovie.poster_path}`} alt={topMovie.title && topMovie.title || !topMovie.title ? topMovie.original_title : topMovie.original_title || 'Serie'} width={1400} height={1000} unoptimized className="min-w-full min-h-screen max-h-screen object-cover object-center sm:hidden" />
-          <div className="absolute top-[65%] w-full sm:left-4 sm:max-w-lg sm:top-[50%] md:top-[40%] md:max-w-2xl">
+          <div className="absolute top-[65%] w-full sm:left-4 sm:max-w-[100%] sm:top-[50%] md:top-[40%] md:max-w-2xl lg:max-w-[60%]">
           <h4 className="text-3xl font-medium break-words text-neutral-200 text-center uppercase sm:text-left sm:font-bold sm:text-5xl md:text-7xl order-1">{topMovie.title}</h4>
           <div className="items-center gap-4 mt-2 ml-2 hidden sm:flex">
           <p className="text-green-400 text-md">{topMovie.vote_average}/10</p>
@@ -56,7 +56,7 @@ export default function PopularMovies() {
       }
 
       {/* First slider of popular movies  */}
-      <div className="relative -mt-20 z-2">
+      <div className="relative -mt-20">
       <h2 className="text-xl text-white font-bold pb-4 p-2 sm:text-2xl">Popular movies on Netflix Clone</h2>
       <div className="bg-gradient-to-t from-black px-2">
       <Splide
@@ -88,8 +88,8 @@ export default function PopularMovies() {
           <SplideSlide key={item.id}>
             <Link href={`/movie/${item.id}`} className=" ">
             <div className="group relative">
-              <div className="rounded-sm max-h-[300px] w-full overflow-hidden">
-              <Image src={`https://image.tmdb.org/t/p/original${item.poster_path}`} alt={item.title && item.title || !item.title ? item.original_title : item.original_title || 'movie'} width={250} height={300} className="rounded-sm w-full h-full scale-100 transition duration-500 group-hover:scale-125" />
+              <div className="rounded-sm max-h-[450px] w-full overflow-hidden">
+              <Image src={`https://image.tmdb.org/t/p/original${item.poster_path}`} alt={item.title && item.title || !item.title ? item.original_title : item.original_title || 'movie'} width={250} height={450} className="rounded-sm w-full h-full scale-100 transition duration-500 group-hover:scale-125" />
               </div>
             <div className="bg-neutral-900 w-full h-full absolute top-0 opacity-0 group-hover:opacity-80 duration-300 z-10"></div>
             <div className="absolute top-2 right-2 z-10 duration-300 opacity-0 group-hover:opacity-100"><AiOutlineInfoCircle size={30} style={{color: 'white'}} /></div>

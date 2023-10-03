@@ -40,13 +40,13 @@ export default function PopularSeries() {
           <div className="bg-gradient-to-t from-neutral-900 min-h-screen w-full absolute z-0"></div>
             <Image src={`https://image.tmdb.org/t/p/original${topSerie.backdrop_path}`} alt={topSerie.title && topSerie.title || !topSerie.title ? topSerie.original_title : topSerie.original_title || 'Serie'} width={1400} height={1000} unoptimized className="min-w-full min-h-screen max-h-screen object-cover object-center hidden sm:block" />  
             <Image src={`https://image.tmdb.org/t/p/original${topSerie.poster_path}`} alt={topSerie.title && topSerie.title || !topSerie.title ? topSerie.original_title : topSerie.original_title || 'Serie'} width={1400} height={1000} unoptimized className="min-w-full min-h-screen max-h-screen object-cover object-center sm:hidden" />
-          <div className="absolute top-[65%] w-full sm:left-4 sm:max-w-lg sm:top-[50%] md:top-[40%]">
+          <div className="absolute top-[65%] w-full sm:pl-4 sm:max-w-[100%] sm:top-[50%] md:top-[40%] lg:max-w-[60%]">
           <h4 className="text-3xl font-medium break-words text-neutral-200 text-center uppercase sm:text-left sm:font-bold sm:text-5xl md:text-7xl order-1">{topSerie.name}</h4>
           <div className="items-center gap-4 mt-2 ml-2 hidden sm:flex">
           <p className="text-green-400 text-md">{topSerie.vote_average}/10</p>
           <p className="text-neutral-400 text-md">{topSerie.first_air_date && topSerie.first_air_date.slice(0, 4)}</p>
           </div>
-          <p className="mt-2 text-neutral-300 ml-2 hidden sm:block">{topSerie.overview}</p>
+          <p className="mt-2 text-neutral-300 hidden sm:block w-full">{topSerie.overview}</p>
           <div className="mt-2 flex justify-center items-center sm:justify-start gap-2">
           <Link href={`/serie/${topSerie.id}`}><AiOutlineInfoCircle size={30} style={{color: 'white'}} /></Link>
           <Link href={`/browse`}><AiOutlinePlusCircle size={30} style={{color: 'white'}} /></Link>
@@ -88,8 +88,8 @@ export default function PopularSeries() {
           <SplideSlide key={item.id}>
             <Link href={`/serie/${item.id}`} className=" ">
             <div className="group relative">
-              <div className="rounded-sm max-h-[300px] w-full overflow-hidden">
-              <Image src={`https://image.tmdb.org/t/p/original${item.poster_path}`} alt={item.title && item.title || !item.title ? item.original_title : item.original_title || 'Serie'} width={250} height={300} className="rounded-sm w-full h-full scale-100 transition duration-500 group-hover:scale-125" />
+              <div className="rounded-sm max-h-[450px] w-full overflow-hidden">
+              <Image src={`https://image.tmdb.org/t/p/original${item.poster_path}`} alt={item.title && item.title || !item.title ? item.original_title : item.original_title || 'Serie'} width={250} height={450} className="rounded-sm w-full h-full scale-100 transition duration-500 group-hover:scale-125" />
               </div>
             <div className="bg-neutral-900 w-full h-full absolute top-0 opacity-0 group-hover:opacity-80 duration-300 z-10"></div>
             <div className="absolute top-2 right-2 z-10 duration-300 opacity-0 group-hover:opacity-100"><AiOutlineInfoCircle size={30} style={{color: 'white'}} /></div>

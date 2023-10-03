@@ -40,7 +40,7 @@ function DiscoverMovies() {
         const observer = new IntersectionObserver((entries) => {
           if (entries[0].isIntersecting) {
             getMovies();
-            // console.log(entries);
+            console.log(entries);
           }
         });
         observer.observe(bottom.current as Element);
@@ -55,7 +55,7 @@ function DiscoverMovies() {
       discoverMovies.map((items, index) => 
       <div className="relative mt-8 bg-black" key={index}>
       <h2 className="text-xl text-white font-bold pb-4 p-2 sm:text-2xl">Discover on Netflix Clone</h2>
-      <div className="bg-gradient-to-t from-black px-2">
+      <div className="bg-gradient-to-t from-black px-2 py-4">
       <Splide
       options={{
         perPage:7,
@@ -84,8 +84,8 @@ function DiscoverMovies() {
       <SplideSlide key={item.id}>
             <Link href={`/movie/${item.id}`}>
             <div className="group relative">
-              <div className="rounded-sm max-h-[300px] w-full overflow-hidden">
-              <Image src={`https://image.tmdb.org/t/p/original${item.poster_path}`} alt={item.title && item.title || !item.title ? item.original_title : item.original_title || 'movie'} width={250} height={300} className="rounded-sm w-full h-full scale-100 transition duration-500 group-hover:scale-125" />
+              <div className="rounded-sm max-h-[450px] w-full overflow-hidden">
+              <Image src={`https://image.tmdb.org/t/p/original${item.poster_path}`} alt={item.title && item.title || !item.title ? item.original_title : item.original_title || 'movie'} width={250} height={450} className="rounded-sm w-full h-full scale-100 transition duration-500 group-hover:scale-125" />
               </div>
             <div className="bg-neutral-900 w-full h-full absolute top-0 opacity-0 group-hover:opacity-80 duration-300 z-10"></div>
             <div className="absolute top-2 right-2 z-10 duration-300 opacity-0 group-hover:opacity-100"><AiOutlineInfoCircle size={30} style={{color: 'white'}} /></div>
@@ -99,7 +99,7 @@ function DiscoverMovies() {
       )
     }
     <div ref={bottom} />
-    <div className={`${isLoading ? 'block' : 'hidden'} fixed bottom-0 flex justify-center items-center bg-gradient-to-t from-neutral-950 h-[200px] w-full text-white text-2xl font-semibold`}>Loading...</div>
+    <div className={`${isLoading ? 'block' : 'hidden'} fixed bottom-0 flex justify-center items-center bg-gradient-to-t from-neutral-950 h-[400px] w-full text-white text-2xl font-semibold`}>Loading...</div>
     </>
   )
 }
