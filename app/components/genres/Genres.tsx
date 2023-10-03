@@ -105,6 +105,7 @@ function Genres() {
           <div className="flex flex-wrap gap-4 justify-around items-center lg:justify-between">
             {moviesByGenre && 
               moviesByGenre.map((item) => 
+              item.poster_path &&
                 <div key={item.id} className={`rounded-md w-2/5 sm:w-3/12 lg:w-1/5`}>
                   <Link href={`/movie/${item.id}`}>
                     <div className="group relative">

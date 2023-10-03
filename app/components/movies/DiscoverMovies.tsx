@@ -81,6 +81,7 @@ function DiscoverMovies() {
         }
       }}>
       {items.map((item: any) =>
+      item.poster_path &&
       <SplideSlide key={item.id}>
             <Link href={`/movie/${item.id}`}>
             <div className="group relative">

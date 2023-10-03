@@ -77,6 +77,7 @@ function DiscoverSeries() {
         }
       }}>
       {items.map((item: any) =>
+      item.poster_path &&
       <SplideSlide key={item.id}>
             <Link href={`/serie/${item.id}`}>
             <div className="group relative">

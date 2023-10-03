@@ -85,6 +85,7 @@ export default function PopularSeries() {
       }}>
       {popularSeries && 
         popularSeries.map((item) =>
+        item.poster_path &&
           <SplideSlide key={item.id}>
             <Link href={`/serie/${item.id}`} className=" ">
             <div className="group relative">
